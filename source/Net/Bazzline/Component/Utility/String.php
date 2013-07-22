@@ -4,6 +4,19 @@ namespace Net\Bazzline\Component\Utility;
 
 class String
 {
+    public function replaceUmlauts($string)
+    {
+        $umlauts = array(
+            'ä' => 'ae'
+        );
+
+        foreach ($umlauts as $search => $replace) {
+            $string = str_replace($search, $replace, $string);
+        }
+
+        return $string;
+    }
+
     public function startsWith($prefix, $string)
     {
         return strpos($string, $prefix) === 0;
