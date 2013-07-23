@@ -39,12 +39,12 @@ class Json
 
     /**
      * @param string $name
-     * @param stdClass $content
+     * @param mixed $content
      * @return int|bool
      * @author stev leibelt <artodeto@arcor.de>
      * @since 2013-07-22
      */
-    public function setContent($name, stdClass $content)
+    public function setContent($name, $content)
     {
         return file_put_contents($name, json_encode($content));
     }
