@@ -47,17 +47,17 @@ class String
      *
      * @param string $search
      * @param string $string
-     * @param bool $searchCaseSensitive
+     * @param bool $ignoreCase
      * @return bool
      * @author stev leibelt <artodeto@arcor.de>
      * @since 2013-08-01
      */
-    public function contains($search, $string, $searchCaseSensitive = true)
+    public function contains($search, $string, $ignoreCase = true)
     {
-        if ($searchCaseSensitive) {
-            return (strpos($search, $string) !== false);
+        if ($ignoreCase) {
+            return (strpos($string, $search) !== false);
         } else {
-            return (stripos($search, $string) !== false);
+            return (stripos($string, $search) !== false);
         }
     }
 
@@ -66,14 +66,14 @@ class String
      *
      * @param $prefix
      * @param $string
-     * @param bool $searchCaseSensitive
+     * @param bool $ignoreCase
      * @return bool
      * @author stev leibelt <artodeto@arcor.de>
      * @since 2013-07-18
      */
-    public function startsWith($prefix, $string, $searchCaseSensitive = true)
+    public function startsWith($prefix, $string, $ignoreCase = true)
     {
-        if ($searchCaseSensitive) {
+        if ($ignoreCase) {
             return strpos($string, $prefix) === 0;
         } else {
             return stripos($string, $prefix) === 0;
@@ -85,14 +85,14 @@ class String
      *
      * @param string $suffix
      * @param string $string
-     * @param bool $searchCaseSensitive
+     * @param bool $ignoreCase
      * @return bool
      * @author stev leibelt <artodeto@arcor.de>
      * @since 2013-07-18
      */
-    public function endsWith($suffix, $string, $searchCaseSensitive = true)
+    public function endsWith($suffix, $string, $ignoreCase = true)
     {
-        if ($searchCaseSensitive) {
+        if ($ignoreCase) {
             return substr($string, 0 - strlen($suffix)) == $suffix;
         } else {
             return strtolower(substr($string, 0 - strlen($suffix))) == strtolower($suffix);
