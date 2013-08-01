@@ -3,6 +3,7 @@
  * @author stev leibelt <artodeto@arcor.de>
  * @since 2013-07-18
  */
+
 namespace Net\Bazzline\Component\Utility;
 
 /**
@@ -12,18 +13,26 @@ namespace Net\Bazzline\Component\Utility;
  * @author stev leibelt <artodeto@arcor.de>
  * @since 2013-07-18
  */
-class String
+class String implements StringInterface
 {
     /**
-     * Replaces german umlauts.
-     * Example: 'Ü' => 'Ue'
-     *
-     * @param string $string
-     * @return string
-     * @author stev leibelt <artodeto@arcor.de>
-     * @since 2013-07-18
+     * {@inheritdoc}
      */
-    public function replaceUmlauts($string)
+    public function replace($search, $replace, $string, $ignoreCase = true)
+    {
+        if ($ignoreCase) {
+            $return = str_ireplace($search, $replace, $string);
+        } else {
+            $return = str_replace($search, $replace, $string);
+        }
+
+        return $return;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function replaceUmlauts($string, $ignoreCase = true)
     {
         $umlauts = array(
             'ä' => 'ae',
@@ -35,22 +44,13 @@ class String
             'Ü' => 'Ue'
         );
 
-        foreach ($umlauts as $search => $replace) {
-            $string = str_replace($search, $replace, $string);
-        }
+        $return = $this->replace(array_keys($umlauts), array_values($umlauts), $string, $ignoreCase);
 
-        return $string;
+        return $return;
     }
 
     /**
-     * Returns true if $string contains $search
-     *
-     * @param string $search
-     * @param string $string
-     * @param bool $ignoreCase
-     * @return bool
-     * @author stev leibelt <artodeto@arcor.de>
-     * @since 2013-08-01
+     * {@inheritdoc}
      */
     public function contains($search, $string, $ignoreCase = true)
     {
@@ -62,14 +62,7 @@ class String
     }
 
     /**
-     * Returns true if $string starts with $prefix
-     *
-     * @param $prefix
-     * @param $string
-     * @param bool $ignoreCase
-     * @return bool
-     * @author stev leibelt <artodeto@arcor.de>
-     * @since 2013-07-18
+     * {@inheritdoc}
      */
     public function startsWith($prefix, $string, $ignoreCase = true)
     {
@@ -81,14 +74,7 @@ class String
     }
 
     /**
-     * Returns true if $string ends with $suffix
-     *
-     * @param string $suffix
-     * @param string $string
-     * @param bool $ignoreCase
-     * @return bool
-     * @author stev leibelt <artodeto@arcor.de>
-     * @since 2013-07-18
+     * {@inheritdoc}
      */
     public function endsWith($suffix, $string, $ignoreCase = true)
     {
