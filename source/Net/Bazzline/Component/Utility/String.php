@@ -17,6 +17,11 @@ class String
         return $string;
     }
 
+    public function contains($search, $string)
+    {
+        return (strpos($search, $string) !== false);
+    }
+
     public function startsWith($prefix, $string)
     {
         return strpos($string, $prefix) === 0;
