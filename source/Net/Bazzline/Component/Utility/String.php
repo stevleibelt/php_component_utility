@@ -17,18 +17,30 @@ class String
         return $string;
     }
 
-    public function contains($search, $string)
+    public function contains($search, $string, $searchCaseSensitive = true)
     {
-        return (strpos($search, $string) !== false);
+        if ($searchCaseSensitive) {
+            return (strpos($search, $string) !== false);
+        } else {
+            return (stripos($search, $string) !== false);
+        }
     }
 
-    public function startsWith($prefix, $string)
+    public function startsWith($prefix, $string, $searchCaseSensitive = true)
     {
-        return strpos($string, $prefix) === 0;
+        if ($searchCaseSensitive) {
+            return strpos($string, $prefix) === 0;
+        } else {
+            return stripos($string, $prefix) === 0;
+        }
     }
 
-    public function endsWith($suffix, $string)
+    public function endsWith($suffix, $string, $searchCaseSensitive = true)
     {
-        return substr($string, 0 - strlen($suffix)) == $suffix;
+        if ($searchCaseSensitive) {
+            return substr($string, 0 - strlen($suffix)) == $suffix;
+        } else {
+            return strtolower(substr($string, 0 - strlen($suffix))) == strtolower($suffix);
+        }
     }
 }
