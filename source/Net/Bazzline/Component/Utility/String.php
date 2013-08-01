@@ -1,13 +1,38 @@
 <?php
-
+/**
+ * @author stev leibelt <artodeto@arcor.de>
+ * @since 2013-07-18
+ */
 namespace Net\Bazzline\Component\Utility;
 
+/**
+ * Class String
+ *
+ * @package Net\Bazzline\Component\Utility
+ * @author stev leibelt <artodeto@arcor.de>
+ * @since 2013-07-18
+ */
 class String
 {
+    /**
+     * Replaces german umlauts.
+     * Example: 'Ü' => 'Ue'
+     *
+     * @param string $string
+     * @return string
+     * @author stev leibelt <artodeto@arcor.de>
+     * @since 2013-07-18
+     */
     public function replaceUmlauts($string)
     {
         $umlauts = array(
-            'ä' => 'ae'
+            'ä' => 'ae',
+            'ö' => 'oe',
+            'ü' => 'ue',
+            'ß' => 'sz',
+            'Ä' => 'Ae',
+            'Ö' => 'Oe',
+            'Ü' => 'Ue'
         );
 
         foreach ($umlauts as $search => $replace) {
@@ -17,6 +42,16 @@ class String
         return $string;
     }
 
+    /**
+     * Returns true if $string contains $search
+     *
+     * @param string $search
+     * @param string $string
+     * @param bool $searchCaseSensitive
+     * @return bool
+     * @author stev leibelt <artodeto@arcor.de>
+     * @since 2013-08-01
+     */
     public function contains($search, $string, $searchCaseSensitive = true)
     {
         if ($searchCaseSensitive) {
@@ -26,6 +61,16 @@ class String
         }
     }
 
+    /**
+     * Returns true if $string starts with $prefix
+     *
+     * @param $prefix
+     * @param $string
+     * @param bool $searchCaseSensitive
+     * @return bool
+     * @author stev leibelt <artodeto@arcor.de>
+     * @since 2013-07-18
+     */
     public function startsWith($prefix, $string, $searchCaseSensitive = true)
     {
         if ($searchCaseSensitive) {
@@ -35,6 +80,16 @@ class String
         }
     }
 
+    /**
+     * Returns true if $string ends with $suffix
+     *
+     * @param string $suffix
+     * @param string $string
+     * @param bool $searchCaseSensitive
+     * @return bool
+     * @author stev leibelt <artodeto@arcor.de>
+     * @since 2013-07-18
+     */
     public function endsWith($suffix, $string, $searchCaseSensitive = true)
     {
         if ($searchCaseSensitive) {
