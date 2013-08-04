@@ -6,6 +6,8 @@
 
 namespace Net\Bazzline\Component\Utility;
 
+use Net\Bazzline\Component\DataType\String as StringClass;
+
 /**
  * Class String
  *
@@ -16,17 +18,29 @@ namespace Net\Bazzline\Component\Utility;
 class String implements StringInterface
 {
     /**
+     * @var \Net\Bazzline\Component\DataType\String
+     * @author stev leibelt <artodeto@arcor.de>
+     * @since 2013-08-04
+     */
+    protected $string;
+
+    /**
+     * @author stev leibelt <artodeto@arcor.de>
+     * @since 2013-08-04
+     */
+    public function __construct()
+    {
+        $this->string = new StringClass();
+    }
+
+    /**
      * {@inheritdoc}
      */
     public function replace($search, $replace, $string, $ignoreCase = true)
     {
-        if ($ignoreCase) {
-            $return = str_ireplace($search, $replace, $string);
-        } else {
-            $return = str_replace($search, $replace, $string);
-        }
-
-        return $return;
+        return (string) $this->string
+            ->setValue($string)
+            ->replace($search, $replace, $ignoreCase);
     }
 
     /**
@@ -44,9 +58,9 @@ class String implements StringInterface
             'Ü' => 'Ue'
         );
 
-        $return = $this->replace(array_keys($umlauts), array_values($umlauts), $string, $ignoreCase);
-
-        return $return;
+        return (string) $this->string
+            ->setValue($string)
+            ->replace(array_keys($umlauts), array_values($umlauts), $ignoreCase);
     }
 
     /**
@@ -54,11 +68,9 @@ class String implements StringInterface
      */
     public function contains($search, $string, $ignoreCase = true)
     {
-        if ($ignoreCase) {
-            return (strpos($string, $search) !== false);
-        } else {
-            return (stripos($string, $search) !== false);
-        }
+        return (string) $this->string
+            ->setValue($string)
+            ->contains($search, $ignoreCase);
     }
 
     /**
@@ -66,11 +78,9 @@ class String implements StringInterface
      */
     public function startsWith($prefix, $string, $ignoreCase = true)
     {
-        if ($ignoreCase) {
-            return strpos($string, $prefix) === 0;
-        } else {
-            return stripos($string, $prefix) === 0;
-        }
+        return (string) $this->string
+            ->setValue($string)
+            ->startsWith($prefix, $ignoreCase);
     }
 
     /**
@@ -78,10 +88,8 @@ class String implements StringInterface
      */
     public function endsWith($suffix, $string, $ignoreCase = true)
     {
-        if ($ignoreCase) {
-            return substr($string, 0 - strlen($suffix)) == $suffix;
-        } else {
-            return strtolower(substr($string, 0 - strlen($suffix))) == strtolower($suffix);
-        }
+        return (string) $this->string
+            ->setValue($string)
+            ->endsWith($suffix, $ignoreCase);
     }
 }
