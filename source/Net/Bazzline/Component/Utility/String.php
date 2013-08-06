@@ -45,22 +45,103 @@ class String implements StringInterface
 
     /**
      * {@inheritdoc}
+     * based on: http://stackoverflow.com/questions/3371697/replacing-accented-characters-php
+     *  and: http://stackoverflow.com/questions/3230012/replacing-accents-with-their-counterparts
      */
     public function replaceUmlauts($string, $ignoreCase = true)
     {
         $umlauts = array(
-            'ä' => 'ae',
-            'ö' => 'oe',
-            'ü' => 'ue',
-            'ß' => 'sz',
-            'Ä' => 'Ae',
-            'Ö' => 'Oe',
-            'Ü' => 'Ue'
+            'A' => array(
+                'À', 'Á', 'Â', 'Ã', 'Ä', 'Å', 'Æ', 'Ă'
+            ),
+            'a' => array(
+                'à', 'á', 'â', 'ã', 'ä', 'å', 'ă', 'æ'
+            ),
+            'B' => array(
+                'Þ'
+            ),
+            'b' => array(
+                'þ'
+            ),
+            'C' => array(
+                'Ç'
+            ),
+            'c' => array(
+                'ç'
+            ),
+            'E' => array(
+                'È', 'É', 'Ê', 'Ë'
+            ),
+            'e' => array(
+                'è', 'é', 'ê', 'ë'
+            ),
+            'G' => array(
+                'Ğ'
+            ),
+            'g' => array(
+                'ğ'
+            ),
+            'I' => array(
+                'Ì', 'Í', 'Î', 'Ï', 'İ'
+            ),
+            'i' => array(
+                'ı', 'ì', 'í', 'î', 'ï'
+            ),
+            'N' => array(
+                'Ñ'
+            ),
+            'n' => array(
+                'ñ'
+            ),
+            'O' => array(
+                'Ò', 'Ó', 'Ô', 'Õ', 'Ö', 'Ø'
+            ),
+            'o' => array(
+                'ö', 'ø', 'ð', 'ò', 'ó', 'ô', 'õ'
+            ),
+            'S' => array(
+                'Š', 'Ş', 'Ș'
+            ),
+            's' => array(
+                'š', 'ș', 'ş'
+            ),
+            'sz' => array(
+                'ß'
+            ),
+            'T' => array(
+                'Ț'
+            ),
+            't' => array(
+                'ț'
+            ),
+            'U' => array(
+                'Ù', 'Ú', 'Û', 'Ü'
+            ),
+            'u' => array(
+                'ù', 'ú', 'û', 'ü'
+            ),
+            'Y' => array(
+                'Ý'
+            ),
+            'y' => array(
+                'ý', 'ý', 'ÿ'
+            ),
+            'Z' => array(
+                'Ž'
+            ),
+            'z' => array(
+                'ž'
+            )
         );
 
-        return (string) $this->string
-            ->setValue($string)
-            ->replace(array_keys($umlauts), array_values($umlauts), $ignoreCase);
+        foreach ($umlauts as $replace => $searches) {
+            $string = $this->string
+                ->setValue($string)
+                ->replace($searches, $replace, $ignoreCase)
+                ->getValue();
+        }
+
+        return $string;
     }
 
     /**
