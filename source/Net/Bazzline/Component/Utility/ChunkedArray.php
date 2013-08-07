@@ -228,10 +228,15 @@ class ChunkedArray implements ArrayAccess, Countable, Iterator
         }
     }
 
-    /*
-     * @return int
-     * @author stev leibelt <artodeto@arcor.de>
-     * @since 2013-08-07
+    /**
+     * (PHP 5 &gt;= 5.1.0)<br/>
+     * Count elements of an object
+     *
+     * @link http://php.net/manual/en/countable.count.php
+     * @return int The custom count as an integer.
+     * </p>
+     * <p>
+     * The return value is cast to an integer.
      */
     public function count()
     {
