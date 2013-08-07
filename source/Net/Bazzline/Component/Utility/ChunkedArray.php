@@ -41,6 +41,20 @@ class ChunkedArray implements Iterator, Traversable, ArrayAccess
     protected $chunkSize;
 
     /**
+     * @param array $array
+     * @param null|int $chunkSize
+     * @author stev leibelt <artodeto@arcor.de>
+     * @since 2013-08-07
+     */
+    public function __construct(array $array = array(), $chunkSize = null)
+    {
+        $this->setArray($array);
+        if (!is_null($chunkSize)) {
+            $this->setChunkSize($chunkSize);
+        }
+    }
+
+    /**
      * Only array values where used and returned
      *
      * @param array $array
@@ -67,8 +81,8 @@ class ChunkedArray implements Iterator, Traversable, ArrayAccess
      */
     public function setChunkSize($chunkSize)
     {
-        $this->chunkSize = $chunkSize;
-        $this->setArray(array_chunk($this->array, $chunkSize));
+        $this->chunkSize = (int) $chunkSize;
+        $this->setArray(array_chunk($this->array, $this->chunkSize));
 
         return $this;
     }
