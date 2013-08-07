@@ -7,7 +7,6 @@
 namespace Net\Bazzline\Component\Utility;
 
 use Iterator;
-use Traversable;
 use ArrayAccess;
 
 /**
@@ -17,7 +16,7 @@ use ArrayAccess;
  * @author stev leibelt <artodeto@arcor.de>
  * @since 2013-08-04
  */
-class ChunkedArray implements Iterator, Traversable, ArrayAccess
+class ChunkedArray implements Iterator, ArrayAccess
 {
     /**
      * @var array
