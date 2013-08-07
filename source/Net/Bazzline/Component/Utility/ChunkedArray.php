@@ -6,8 +6,9 @@
 
 namespace Net\Bazzline\Component\Utility;
 
-use Iterator;
 use ArrayAccess;
+use Countable:
+use Iterator;
 
 /**
  * Class ChunkedArray
@@ -18,7 +19,7 @@ use ArrayAccess;
  * @todo: Split up thinks in more generic classes
  * @todo: http://www.php.net/manual/en/class.seekableiterator.php
  */
-class ChunkedArray implements Iterator, ArrayAccess
+class ChunkedArray implements ArrayAccess, Countable, Iterator
 {
     /**
      * @var array
@@ -225,5 +226,15 @@ class ChunkedArray implements Iterator, ArrayAccess
         if (!is_null($offset)) {
             unset($this->array[$offset]);
         }
+    }
+
+    /*
+     * @return int
+     * @author stev leibelt <artodeto@arcor.de>
+     * @since 2013-08-07
+     */
+    public function count()
+    {
+        return count($this->array);
     }
 }
