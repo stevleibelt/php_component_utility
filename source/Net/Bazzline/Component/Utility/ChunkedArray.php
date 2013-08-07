@@ -142,7 +142,7 @@ class ChunkedArray implements Iterator, ArrayAccess
      */
     public function rewind()
     {
-        rewind($this->array);
+        reset($this->array);
     }
 
     /**
