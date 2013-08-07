@@ -1,7 +1,7 @@
 <?php
 /**
  * @author stev leibelt <artodeto@arcor.de>
- * @since 2013-08-07
+ * @since 2013-08-04
  */
 
 namespace Net\Bazzline\Component\Utility;
@@ -15,28 +15,28 @@ use ArrayAccess;
  *
  * @package Net\Bazzline\Component\Utility
  * @author stev leibelt <artodeto@arcor.de>
- * @since 2013-08-07
+ * @since 2013-08-04
  */
 class ChunkedArray implements Iterator, Traversable, ArrayAccess
 {
     /**
      * @var array
      * @author stev leibelt <artodeto@arcor.de>
-     * @since 2013-08-07
+     * @since 2013-08-04
      */
     protected $array;
 
     /**
      * @var int
      * @author stev leibelt <artodeto@arcor.de>
-     * @since 2013-08-07
+     * @since 2013-08-04
      */
     protected $arraySize;
 
     /**
      * @var int
      * @author stev leibelt <artodeto@arcor.de>
-     * @since 2013-08-07
+     * @since 2013-08-04
      */
     protected $chunkSize;
 
@@ -44,7 +44,7 @@ class ChunkedArray implements Iterator, Traversable, ArrayAccess
      * @param array $array
      * @param null|int $chunkSize
      * @author stev leibelt <artodeto@arcor.de>
-     * @since 2013-08-07
+     * @since 2013-08-04
      */
     public function __construct(array $array = array(), $chunkSize = null)
     {
@@ -60,7 +60,7 @@ class ChunkedArray implements Iterator, Traversable, ArrayAccess
      * @param array $array
      * @return $this
      * @author stev leibelt <artodeto@arcor.de>
-     * @since 2013-08-07
+     * @since 2013-08-04
      */
     public function setArray(array $array)
     {
@@ -77,7 +77,7 @@ class ChunkedArray implements Iterator, Traversable, ArrayAccess
      * @param int $chunkSize
      * @return $this
      * @author stev leibelt <artodeto@arcor.de>
-     * @since 2013-08-07
+     * @since 2013-08-04
      */
     public function setChunkSize($chunkSize)
     {
