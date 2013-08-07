@@ -15,6 +15,8 @@ use ArrayAccess;
  * @package Net\Bazzline\Component\Utility
  * @author stev leibelt <artodeto@arcor.de>
  * @since 2013-08-04
+ * @todo: Split up thinks in more generic classes
+ * @todo: http://www.php.net/manual/en/class.seekableiterator.php
  */
 class ChunkedArray implements Iterator, ArrayAccess
 {
