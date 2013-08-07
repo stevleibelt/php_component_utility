@@ -41,13 +41,6 @@ class ChunkedArray implements Iterator, Traversable, ArrayAccess
     protected $chunkSize;
 
     /**
-     * @var int
-     * @author stev leibelt <artodeto@arcor.de>
-     * @since 2013-08-07
-     */
-    protected $currentIndex;
-
-    /**
      * Only array values where used and returned
      *
      * @param array $array
@@ -59,7 +52,7 @@ class ChunkedArray implements Iterator, Traversable, ArrayAccess
     {
         $this->array = array_values($array);
         $this->arraySize = count($this->array);
-        $this->currentIndex = 0;
+        $this->rewind();
 
         return $this;
     }
@@ -89,7 +82,7 @@ class ChunkedArray implements Iterator, Traversable, ArrayAccess
      */
     public function current()
     {
-        // TODO: Implement current() method.
+        return current($this->array);
     }
 
 
@@ -103,7 +96,7 @@ class ChunkedArray implements Iterator, Traversable, ArrayAccess
      */
     public function next()
     {
-        // TODO: Implement next() method.
+        next($this->array);
     }
 
 
@@ -117,7 +110,7 @@ class ChunkedArray implements Iterator, Traversable, ArrayAccess
      */
     public function key()
     {
-        // TODO: Implement key() method.
+        return key($this->array);
     }
 
 
@@ -132,7 +125,7 @@ class ChunkedArray implements Iterator, Traversable, ArrayAccess
      */
     public function valid()
     {
-        // TODO: Implement valid() method.
+        return ($this->current() !== false);
     }
 
 
@@ -146,7 +139,7 @@ class ChunkedArray implements Iterator, Traversable, ArrayAccess
      */
     public function rewind()
     {
-        // TODO: Implement rewind() method.
+        rewind($this->array);
     }
 
 
