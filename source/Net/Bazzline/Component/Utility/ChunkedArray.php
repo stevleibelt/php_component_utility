@@ -161,7 +161,7 @@ class ChunkedArray implements Iterator, Traversable, ArrayAccess
      */
     public function offsetExists($offset)
     {
-        // TODO: Implement offsetExists() method.
+        return array_key_exists($offset, $this->array);
     }
 
 
@@ -180,7 +180,7 @@ class ChunkedArray implements Iterator, Traversable, ArrayAccess
      */
     public function offsetGet($offset)
     {
-        // TODO: Implement offsetGet() method.
+        return $this->offsetExists($offset) ? $this->array[$offset] : null;
     }
 
 
@@ -202,7 +202,11 @@ class ChunkedArray implements Iterator, Traversable, ArrayAccess
      */
     public function offsetSet($offset, $value)
     {
-        // TODO: Implement offsetSet() method.
+        if (is_null($offset)) {
+            $this->array[] = $value;
+        } else {
+            $this->array[$offset] = $value;
+        }
     }
 
 
@@ -221,6 +225,8 @@ class ChunkedArray implements Iterator, Traversable, ArrayAccess
      */
     public function offsetUnset($offset)
     {
-        // TODO: Implement offsetUnset() method.
+        if (!is_null($offset)) {
+            unset($this->array[$offset]);
+        }
     }
 }
