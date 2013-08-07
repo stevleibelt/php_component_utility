@@ -71,8 +71,6 @@ class ChunkedArray implements Iterator, Traversable, ArrayAccess
         return $this;
     }
 
-
-
     /**
      * @param int $chunkSize
      * @return $this
@@ -99,8 +97,6 @@ class ChunkedArray implements Iterator, Traversable, ArrayAccess
         return current($this->array);
     }
 
-
-
     /**
      * (PHP 5 &gt;= 5.0.0)<br/>
      * Move forward to next element
@@ -113,8 +109,6 @@ class ChunkedArray implements Iterator, Traversable, ArrayAccess
         next($this->array);
     }
 
-
-
     /**
      * (PHP 5 &gt;= 5.0.0)<br/>
      * Return the key of the current element
@@ -126,8 +120,6 @@ class ChunkedArray implements Iterator, Traversable, ArrayAccess
     {
         return key($this->array);
     }
-
-
 
     /**
      * (PHP 5 &gt;= 5.0.0)<br/>
@@ -142,8 +134,6 @@ class ChunkedArray implements Iterator, Traversable, ArrayAccess
         return ($this->current() !== false);
     }
 
-
-
     /**
      * (PHP 5 &gt;= 5.0.0)<br/>
      * Rewind the Iterator to the first element
@@ -155,8 +145,6 @@ class ChunkedArray implements Iterator, Traversable, ArrayAccess
     {
         rewind($this->array);
     }
-
-
 
     /**
      * (PHP 5 &gt;= 5.0.0)<br/>
@@ -178,8 +166,6 @@ class ChunkedArray implements Iterator, Traversable, ArrayAccess
         return array_key_exists($offset, $this->array);
     }
 
-
-
     /**
      * (PHP 5 &gt;= 5.0.0)<br/>
      * Offset to retrieve
@@ -196,8 +182,6 @@ class ChunkedArray implements Iterator, Traversable, ArrayAccess
     {
         return $this->offsetExists($offset) ? $this->array[$offset] : null;
     }
-
-
 
     /**
      * (PHP 5 &gt;= 5.0.0)<br/>
@@ -222,8 +206,6 @@ class ChunkedArray implements Iterator, Traversable, ArrayAccess
             $this->array[$offset] = $value;
         }
     }
-
-
 
     /**
      * (PHP 5 &gt;= 5.0.0)<br/>
