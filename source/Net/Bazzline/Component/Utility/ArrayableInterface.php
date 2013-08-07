@@ -6,8 +6,9 @@
 
 namespace Net\Bazzline\Component\Utility;
 
-use Iterator;
 use ArrayAccess;
+use Countable;
+use Iterator;
 
 /**
  * Class ArrayableInterface
@@ -16,7 +17,7 @@ use ArrayAccess;
  * @author stev leibelt <artodeto@arcor.de>
  * @since 2013-08-07
  */
-interface ArrayableInterface extends ArrayAccess, Iterator
+interface ArrayableInterface extends ArrayAccess, Countable, Iterator
 {
     /**
      * @param array $array
@@ -27,7 +28,7 @@ interface ArrayableInterface extends ArrayAccess, Iterator
     public function fromArray(array $array);
 
     /**
-     * @return $this
+     * @return array
      * @author stev leibelt <artodeto@arcor.de>
      * @since 2013-08-07
      */
