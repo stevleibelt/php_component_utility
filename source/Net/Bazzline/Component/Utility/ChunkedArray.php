@@ -20,6 +20,67 @@ use ArrayAccess;
 class ChunkedArray implements Iterator, Traversable, ArrayAccess
 {
     /**
+     * @var array
+     * @author stev leibelt <artodeto@arcor.de>
+     * @since 2013-08-07
+     */
+    protected $array;
+
+    /**
+     * @var int
+     * @author stev leibelt <artodeto@arcor.de>
+     * @since 2013-08-07
+     */
+    protected $arraySize;
+
+    /**
+     * @var int
+     * @author stev leibelt <artodeto@arcor.de>
+     * @since 2013-08-07
+     */
+    protected $chunkSize;
+
+    /**
+     * @var int
+     * @author stev leibelt <artodeto@arcor.de>
+     * @since 2013-08-07
+     */
+    protected $currentIndex;
+
+    /**
+     * Only array values where used and returned
+     *
+     * @param array $array
+     * @return $this
+     * @author stev leibelt <artodeto@arcor.de>
+     * @since 2013-08-07
+     */
+    public function setArray(array $array)
+    {
+        $this->array = array_values($array);
+        $this->arraySize = count($this->array);
+        $this->currentIndex = 0;
+
+        return $this;
+    }
+
+
+
+    /**
+     * @param int $chunkSize
+     * @return $this
+     * @author stev leibelt <artodeto@arcor.de>
+     * @since 2013-08-07
+     */
+    public function setChunkSize($chunkSize)
+    {
+        $this->chunkSize = $chunkSize;
+        $this->setArray(array_chunk($this->array, $chunkSize));
+
+        return $this;
+    }
+
+    /**
      * (PHP 5 &gt;= 5.0.0)<br/>
      * Return the current element
      *
