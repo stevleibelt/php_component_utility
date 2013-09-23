@@ -25,5 +25,5 @@ interface BuilderInterface
      * @author stev leibelt <artodeto@arcor.de>
      * @since 2013-08-01
      */
-    public function getResult();
+    public function andFinallyGetResult();
 }
