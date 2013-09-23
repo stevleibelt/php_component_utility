@@ -13,7 +13,7 @@ namespace Net\Bazzline\Component\Utility;
  * @author stev leibelt <artodeto@arcor.de>
  * @since 2013-08-01
  */
-interface ParameterInterface extends NameableInterface
+interface ParameterInterface
 {
     /**
      * @return mixed
@@ -21,6 +21,13 @@ interface ParameterInterface extends NameableInterface
      * @since 2013-08-01
      */
     public function getValue();
+
+    /**
+     * @return bool
+     * @author stev leibelt <artodeto@arcor.de>
+     * @since 2013-09-23
+     */
+    public function hasValue();
 
     /**
      * @param mixed $value
