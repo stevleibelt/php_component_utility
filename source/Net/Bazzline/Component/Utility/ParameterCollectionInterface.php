@@ -16,13 +16,12 @@ namespace Net\Bazzline\Component\Utility;
 interface ParameterCollectionInterface
 {
     /**
-     * @param string $name
-     * @param mixed $value
+     * @param ParameterInterface $parameter
      * @return $this
      * @author stev leibelt <artodeto@arcor.de>
      * @since 2013-08-12
      */
-    public function addParameter($name, $value);
+    public function addParameter(ParameterInterface $parameter);
 
     /**
      * @param array $parameters
@@ -33,18 +32,17 @@ interface ParameterCollectionInterface
     public function addParameters(array $parameters);
 
     /**
-     * @param string $name
+     * @param ParameterInterface $parameter
      * @return bool
      * @author stev leibelt <artodeto@arcor.de>
      * @since 2013-08-12
      */
-    public function hasParameter($name);
+    public function hasParameter(ParameterInterface $parameter);
 
     /**
-     * @param string $name
-     * @return null|mixed
+     * @return array
      * @author stev leibelt <artodeto@arcor.de>
      * @since 2013-08-12
      */
-    public function getParameter($name);
+    public function getParameters();
 }
