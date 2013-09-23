@@ -19,6 +19,11 @@ namespace Net\Bazzline\Component\Utility;
  */
 class Parameter implements ParameterInterface
 {
+    /**
+     * @var mixed
+     * @author stev leibelt <artodeto@arcor.de>
+     * @since 2013-09-23
+     */
     protected $value;
 
     /**
