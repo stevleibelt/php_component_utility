@@ -15,7 +15,7 @@ namespace Net\Bazzline\Component\Utility;
  * @todo: Split up thinks in more generic classes
  * @todo: http://www.php.net/manual/en/class.seekableiterator.php
  */
-class ChunkedArray implements ArrayableInterface
+class ChunkedArray implements ArrayConvertibleInterface
 {
     /**
      * @var array
