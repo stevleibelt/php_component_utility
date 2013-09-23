@@ -6,38 +6,20 @@
 
 namespace Net\Bazzline\Component\Utility;
 
+/**
+ * Class Parameter
+ * You should extend this class and use meaningful class names to enable type hinting
+ * Furthermore, you can set a default value in the constructor (if wanted).
+ * You can filter/validate the input for setValue by extending the empty
+ *  "setValueFilter" method. This method has to return bool of false.
+ *
+ * @package Net\Bazzline\Component\Utility
+ * @author stev leibelt <artodeto@arcor.de>
+ * @since 2013-09-23
+ */
 class Parameter implements ParameterInterface
 {
-    /**
-     * @return null|string
-     * @author stev leibelt <artodeto@arcor.de>
-     * @since 2013-08-01
-     */
-    public function getName()
-    {
-        // TODO: Implement getName() method.
-    }
-
-    /**
-     * @return bool
-     * @author stev leibelt <artodeto@arcor.de>
-     * @since 2013-08-01
-     */
-    public function hasName()
-    {
-        // TODO: Implement hasName() method.
-    }
-
-    /**
-     * @param string $name
-     * @return $this
-     * @author stev leibelt <artodeto@arcor.de>
-     * @since 2013-08-01
-     */
-    public function setName($name)
-    {
-        // TODO: Implement setName() method.
-    }
+    protected $value;
 
     /**
      * @return mixed
@@ -46,7 +28,7 @@ class Parameter implements ParameterInterface
      */
     public function getValue()
     {
-        // TODO: Implement getValue() method.
+        return $this->value;
     }
 
     /**
@@ -57,6 +39,31 @@ class Parameter implements ParameterInterface
      */
     public function setValue($value)
     {
-        // TODO: Implement setValue() method.
+        if ($this->filterValue($value)) {
+            $this->value = $value;
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return bool
+     * @author stev leibelt <artodeto@arcor.de>
+     * @since 2013-09-23
+     */
+    public function hasValue()
+    {
+        return (!is_null($this->value));
+    }
+
+    /**
+     * @param mixed $value
+     * @return bool
+     * @author stev leibelt <artodeto@arcor.de>
+     * @since 2013-09-23
+     */
+    protected function filterValue($value)
+    {
+        return true;
     }
 }
