@@ -13,7 +13,7 @@ namespace Net\Bazzline\Component\Utility;
  * @author stev leibelt <artodeto@arcor.de>
  * @since 2013-08-12
  */
-interface ParametrizeInterface
+interface ParameterCollectionInterface
 {
     /**
      * @param string $name
