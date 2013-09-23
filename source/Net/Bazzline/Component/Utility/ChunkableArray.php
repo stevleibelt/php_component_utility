@@ -7,7 +7,7 @@
 namespace Net\Bazzline\Component\Utility;
 
 /**
- * Class ChunkedArray
+ * Class ChunkableArray
  *
  * @package Net\Bazzline\Component\Utility
  * @author stev leibelt <artodeto@arcor.de>
@@ -15,7 +15,7 @@ namespace Net\Bazzline\Component\Utility;
  * @todo: Split up thinks in more generic classes
  * @todo: http://www.php.net/manual/en/class.seekableiterator.php
  */
-class ChunkedArray implements ArrayConvertibleInterface
+class ChunkableArray implements ArrayConvertibleInterface
 {
     /**
      * @var array
