@@ -18,12 +18,11 @@ interface ParameterCollectionInterface
     /**
      * @param string $name
      * @param mixed $value
-     * @param bool $isMandatory
      * @return $this
      * @author stev leibelt <artodeto@arcor.de>
      * @since 2013-08-12
      */
-    public function addParameter($name, $value, $isMandatory = false);
+    public function addParameter($name, $value);
 
     /**
      * @param array $parameters
