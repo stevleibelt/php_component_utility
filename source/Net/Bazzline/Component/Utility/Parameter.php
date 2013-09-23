@@ -12,6 +12,8 @@ namespace Net\Bazzline\Component\Utility;
  * Furthermore, you can set a default value in the constructor (if wanted).
  * You can filter/validate the input for setValue by extending the empty
  *  "setValueFilter" method. This method has to return bool of false.
+ * By overwriting the "isMandatory" method, you can define if a parameter should
+ *  be treated as mandatory or not.
  *
  * @package Net\Bazzline\Component\Utility
  * @author stev leibelt <artodeto@arcor.de>
@@ -59,6 +61,16 @@ class Parameter implements ParameterInterface
     public function hasValue()
     {
         return (!is_null($this->value));
+    }
+
+    /**
+     * @return bool
+     * @author stev leibelt <artodeto@arcor.de>
+     * @since 2013-09-23
+     */
+    public function isMandatory()
+    {
+        return false;
     }
 
     /**

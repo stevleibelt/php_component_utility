@@ -36,4 +36,11 @@ interface ParameterInterface
      * @since 2013-08-01
      */
     public function setValue($value);
+
+    /**
+     * @return bool
+     * @author stev leibelt <artodeto@arcor.de>
+     * @since 2013-09-23
+     */
+    public function isMandatory();
 }
