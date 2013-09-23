@@ -42,10 +42,9 @@ interface ParameterCollectionInterface
 
     /**
      * @param string $name
-     * @param null|mixed $default
-     * @return mixed
+     * @return null|mixed
      * @author stev leibelt <artodeto@arcor.de>
      * @since 2013-08-12
      */
-    public function getParameter($name, $default = null);
+    public function getParameter($name);
 }
